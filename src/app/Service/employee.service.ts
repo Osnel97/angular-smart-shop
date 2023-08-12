@@ -17,6 +17,10 @@ constructor(private http: HttpClient) {
   public getEmployees(): Observable<Employee[]> {
   return this.http.get<Employee[]>(`${this.smartShopApi}/employee/all`);
   }
+
+  public getEmployeeById(employeeId: number): Observable<Employee[]> {
+    return this.http.get<Employee[]>(`${this.smartShopApi}/employee/${employeeId}`);
+  }
   
   public addEmployee(employee: Employee): Observable<Employee> {
     return this.http.post<Employee>(`${this.smartShopApi}/employee/add`, employee);
